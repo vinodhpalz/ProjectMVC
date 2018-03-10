@@ -14,6 +14,7 @@
 <body>
 <h1>${HeaderName}</h1>
 <div class="container">
+<a href="/ProjectMVC/getproducts" method="get">GET PRODUCTS</a>
 
 <form action="/ProjectMVC/success" method="post">
 <div class="form-group">
