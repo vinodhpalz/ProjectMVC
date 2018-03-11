@@ -16,7 +16,7 @@
 <div class="container">
 <a href="/ProjectMVC/getproducts" method="get">GET PRODUCTS</a>
 
-<form action="/ProjectMVC/success" method="post">
+<form action="/ProjectMVC/success" method="get">
 <div class="form-group">
 <label for="pName">Product Name: </label>
 <input type="text" class="form-control" id="pName" name="pName" placeholder="Enter the product name">

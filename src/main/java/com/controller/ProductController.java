@@ -1,9 +1,13 @@
 package com.controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.security.auth.message.callback.PrivateKeyCallback.Request;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -26,9 +30,19 @@ public class ProductController {
 		return view;
 	}
 	
-	@RequestMapping(value="/success", method=RequestMethod.POST)
-	public ModelAndView productSuccess(@ModelAttribute("product1")Product product)
+	@RequestMapping(value="/success", method=RequestMethod.GET)
+	public ModelAndView productSuccess(@ModelAttribute("product1")Product product) throws Exception
 	{
+/*		String exceptionOccured = "ARITHMETIC_EXCEPTION";
+		if(exceptionOccured.equalsIgnoreCase("NULL_POINTER")) {
+			throw new NullPointerException("Null Pointer Exception");
+		}
+		else if(exceptionOccured.equalsIgnoreCase("IO_EXCEPTION")) {
+			throw new IOException("IO Exception");
+		}
+		else if(exceptionOccured.equalsIgnoreCase("ARITHMETIC_EXCEPTION")) {
+			throw new ArithmeticException("Arithmetic Exception");
+		}*/
 		ModelAndView mv = new ModelAndView("success");
 		mv.addObject("productName",product.getpName());
 		
@@ -55,6 +69,15 @@ public class ProductController {
 		List<Product> al = pd.getProducts();
 		return al;
 	}
+	
+	@RequestMapping(value="/privatePage", method=RequestMethod.GET)
+	public String getPrivatePage() {
+		
+		return "privatepage";
+		
+	}
+	
+	
 	
 	
 	
