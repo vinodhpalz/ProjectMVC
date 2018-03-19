@@ -7,15 +7,19 @@
     http://www.springframework.org/schema/security/spring-security.xsd">  
 
 <http auto-config="true">
-<intercept-url pattern="/privatePage" access="hasRole('ROLE_ADMIN')"/>
+<intercept-url pattern="/getproducts" access="hasRole('ROLE_ADMIN')"/>
+<form-login login-page="/login" />
+<logout logout-success-url="/"/>
 <access-denied-handler error-page="/access-denied"/>
 <csrf disabled = "true"/>
 </http>
 
 <authentication-manager>
 <authentication-provider>
+	<password-encoder hash="sha-256"/>
 	<user-service>
-	<user name="vinodh" password="vinodh" authorities="ROLE_ADMIN"/>
+	<user name="vinodh" password="7f8dfcffb9aba02f0333516fad641a6f44431f1ca80c41159ba11c1c62e72636" authorities="ROLE_ADMIN"/>
+	<user name="sid" password="34b36454cab2e7842c389f7d88ecb7df279e3918cbac07970d4cde496e70f4c8" authorities="ROLE_ADMIN"/>
 	</user-service>
 </authentication-provider>
 </authentication-manager>

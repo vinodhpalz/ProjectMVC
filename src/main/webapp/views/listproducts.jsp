@@ -36,6 +36,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+<a href="${pageContext.request.contextPath}/logout">logout</a>
+<h1>Welcome Mr/Ms. ${un}</h1>
 <table>
 <c:forEach items="${ lp }" var = "products">
 <tr>
@@ -52,10 +54,6 @@
 </tr>
 </thead>
 </table>
-
-
-
-
 
 </body>
 </html>

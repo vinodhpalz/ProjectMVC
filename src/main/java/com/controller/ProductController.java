@@ -1,6 +1,7 @@
 package com.controller;
 
 import java.io.IOException;
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,12 +54,13 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value="/getproducts", method = RequestMethod.GET)
-	public ModelAndView getProductList() {
+	public ModelAndView getProductList(Principal p) {
 		
 		ProductDAO pd = new ProductDAO();
 		List<Product> al = pd.getProducts();
 		ModelAndView mv = new ModelAndView("listproducts");
 		mv.addObject("lp",al);
+		mv.addObject("un",p.getName());
 		return mv;		
 	}
 	
