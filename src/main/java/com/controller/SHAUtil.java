@@ -7,7 +7,7 @@ import java.security.NoSuchAlgorithmException;
 public class SHAUtil {
 
 	public static void main(String[] args) throws NoSuchAlgorithmException {
-		String originalString = "sid";
+		String originalString = "raj@123";
 		MessageDigest digest = MessageDigest.getInstance("SHA-256");
 		byte[] encodedhash = digest.digest(originalString.getBytes(StandardCharsets.UTF_8));
 		System.out.println(SHAUtil.bytesToHex(encodedhash));

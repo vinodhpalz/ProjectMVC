@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+<%@ taglib uri = "http://www.springframework.org/security/tags" prefix="sec" %>
+
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -36,7 +38,13 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+<a href="success.jsp">Success Page</a>
+<sec:authorize access="hasRole('ROLE_ADMIN')">
+<a href="#">Add Products Page</a>
+</sec:authorize>
 <a href="${pageContext.request.contextPath}/logout">logout</a>
+
 <h1>Welcome Mr/Ms. ${un}</h1>
 <table>
 <c:forEach items="${ lp }" var = "products">
